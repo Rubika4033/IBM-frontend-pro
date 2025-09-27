@@ -1,0 +1,389 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.logo{
+  color:white;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, darkmagenta, mediumvioletred); 
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar ul li a:hover {
+  background:white;
+  color: black;
+}
+
+.login-btn {
+  background: lightgreen;
+  color:  black!important;
+  border-radius: 20px;
+  padding: 6px 16px;
+}
+
+/* Banner */
+.banner img {
+  margin-top: 50px; /* exactly matches navbar height */
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Finder Section */
+.finder {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.finder h1 {
+  margin-bottom: 20px;
+  color: darkmagenta;
+}
+
+.finder form {
+  display: inline-flex;
+  width: 60%;
+  max-width: 500px;
+}
+
+.finder input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid darkmagenta;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+}
+
+.finder button {
+  background: lightgreen;
+  color: black;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+  border: darkmagenta;
+}
+
+.finder button:hover {
+  background:purple;
+}
+
+
+/* Results Section */
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;   /* align items to the left */
+  gap: 25px;                     /* space between cards */
+  padding: 40px 40px;            /* space from left & right edges */
+}
+
+.recipe-card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  width: 240px;
+  text-align: center;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;   /* ✅ space between image & text */
+}
+
+.recipe-card h3 {
+  margin: 8px 0 15px;   /* space below title */
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styled Button */
+.recipe-card button {
+  background: lightgreen;       /* 🔸 orange */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.recipe-card button:hover {
+  background:darkmagenta;      /* darker orange */
+  transform: scale(1.05);
+}
+
+.recipe-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* About Section */
+.about {
+  background:  #f3e6f3;
+  padding: 40px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 28px;
+  color:  darkmagenta;
+  margin-bottom: 15px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Responsive Fix */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .banner-text h1 {
+    font-size: 28px;
+  }
+}
+/* Category Page */
+.d4 {
+  text-align: center;
+  margin: 40px 20px 20px;
+}
+
+.d4 h1 {
+  color: darkmagenta;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.d4 p {
+  color: black;
+  font-size: 18px;
+}
+
+/* Categories Grid */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 20px 40px;
+}
+
+.d5 {
+  background: lavender;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.d5:hover {
+  transform: translateY(-5px);
+  background:darkmagenta ;
+  color: black;
+}
+
+.d5 img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.d5 a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.d5:hover a {
+  color: white;
+}
+/* login  */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 120px auto;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.login-container h2 {
+  color: darkmagenta;
+  margin-bottom: 25px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px 2px;
+  margin: 10px 0;
+  border: 2px solid darkmagenta;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+  border-color: mediumvioletred;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: darkmagenta;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.login-container button:hover {
+  background: mediumvioletred;
+  transform: scale(1.05);
+}
+
+.login-container p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-container a {
+  color: darkmagenta;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-container a:hover {
+  color: mediumvioletred;
+}
+/* register field */
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 100px auto;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.auth-container h2 {
+  color: darkmagenta;
+  margin-bottom: 25px;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  width: 100%;
+  padding: 12px 7px;
+  margin: 10px 0;
+  border: 2px solid darkmagenta;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+}
+
+.auth-container input:focus {
+  border-color: mediumvioletred;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  background: darkmagenta;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.auth-container button:hover {
+  background: mediumvioletred;
+  transform: scale(1.05);
+}
+
+.auth-container p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-container a {
+  color: darkmagenta;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-container a:hover {
+  color: mediumvioletred;
+}
