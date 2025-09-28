@@ -387,3 +387,74 @@ body {
 .auth-container a:hover {
   color: mediumvioletred;
 }
+
+ /*planner page  */
+.planner h1,
+.planner p {
+  text-align: center;       
+  color: darkmagenta;       
+}
+
+.planner p {
+  font-size: 16px;          
+  margin-top: 10px;         
+}
+
+
+.assign-box {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.assign-box select,
+.assign-box input {
+  padding: 10px;
+  border: 2px solid darkmagenta;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.assign-box button {
+  padding: 10px 20px;
+  background: darkmagenta;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.assign-box button:hover {
+  background: mediumvioletred;
+}
+
+.menu-list {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.menu-list h2 {
+  color: darkmagenta;
+  margin-bottom: 15px;
+}
+
+.menu-list ul {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: auto;
+}
+
+.menu-list li {
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 8px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 16px;
+  text-align: left;
+}

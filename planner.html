@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Meal Planner - Foodies</title>
+  <link rel="icon" href="images/chef (2).png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <!-- Meal Planner Section -->
+    <section class="planner">
+        <h1>Meal Planner</h1>
+        <p>Assign a recipe to a specific day of the week ,It will Auto-Save your Recipe choice.</p>
+
+        <div class="assign-box">
+            <select id="daySelect">
+            <option value="">-- Select Day --</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+            </select>
+
+            <input type="text" id="recipeInput" placeholder="Type or pick a recipe name">
+
+            <button onclick="assignRecipe()">Assign</button>
+        </div>
+
+    <!-- Weekly Menu List -->
+    <div class="menu-list">
+      <h2>Weekly Menu</h2>
+      <ul id="menuList"></ul>
+    </div>
+  </section>
+
+  
+</body>
+</html>
+
+<script>
+    
+const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+let mealPlan = JSON.parse(localStorage.getItem("mealPlanHorizontal")) || {};
+
+//  weekly menu list
+function renderMenu() {
+  const list = document.getElementById("menuList");
+  if (!list) return; 
+  list.innerHTML = "";
+
+  days.forEach(day => {
+    const recipe = mealPlan[day] || "—";
+    const li = document.createElement("li");
+    li.textContent = `${day}: ${recipe}`;
+    list.appendChild(li);
+  });
+}
+
+// Assign a recipe
+function assignRecipe() {
+  const day = document.getElementById("daySelect").value;
+  const recipe = document.getElementById("recipeInput").value.trim();
+
+  if (!day || !recipe) {
+    alert("⚠️ Please select a day and enter a recipe!");
+    return;
+  }
+
+  mealPlan[day] = recipe;
+  localStorage.setItem("mealPlanHorizontal", JSON.stringify(mealPlan));
+  renderMenu();
+  document.getElementById("recipeInput").value = "";
+}
+
+// Auto-render when planner.html loads
+document.addEventListener("DOMContentLoaded", renderMenu);
+
+    
+
+</script>
