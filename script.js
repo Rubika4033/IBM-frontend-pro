@@ -7,37 +7,36 @@ document.getElementById("recipeForm").addEventListener("submit", function(event)
     return;
   }
 
-  // Free API 
-  const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
+  // Spoonacular API 
+  const apiKey = "67e0aedbc41647469d25d9000df28a35";
+  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredient}&number=10&apiKey=${apiKey}`;
 
   document.getElementById("results").innerHTML = "🔎 Searching...";
 
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      if (!data.meals) {
+      if (!data || data.length === 0) {
         document.getElementById("results").innerHTML = "⚠️ No recipes found.";
         return;
       }
 
       let output = `<div class="parent-div">`;
-      data.meals.forEach(meal => {
+      data.forEach(meal => {
         output += `
-
-              <div class="recipe-card">
-                <h3>${meal.strMeal}</h3>
-                <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-                <a href="https://www.themealdb.com/meal/${meal.idMeal}" target="_blank"><button class="btn2">View Recipe</button></a>
-              </div>
-          
+          <div class="recipe-card">
+            <h3>${meal.title}</h3>
+            <img src="${meal.image}" alt="${meal.title}">
+            <a href="https://spoonacular.com/recipes/${meal.title.replace(/\s+/g, "-")}-${meal.id}" target="_blank">
+              <button class="btn2">View Recipe</button>
+            </a>
+          </div>
         `;
       });
-      
       output += `</div>`;
 
       document.getElementById("results").innerHTML = output;
       document.getElementById("recipeForm").reset();
-      
     })
     .catch(error => {
       document.getElementById("results").innerHTML = "⚠️ Error fetching recipes.";
